@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import FileUpload from './FileUpload'; 
+import SpreadsheetDisplay from './SpreadsheetDisplay';
 
-function App() {
+const App = () => {
+  const [spreadsheetData, setSpreadsheetData] = useState(null);
+
+  // Function to handle file upload and processing
+  const handleFileUpload = (file) => {
+    // Process the file and set the spreadsheet data
+    // For now, let's assume the backend returns mock data
+    // Replace this with actual API call
+    setSpreadsheetData([
+      { Column1: 'Data1', Column2: 'Data2' }, // Mock data
+      { Column1: 'Data3', Column2: 'Data4' },
+    ]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FileUpload onFileUpload={handleFileUpload} />
+      <SpreadsheetDisplay data={spreadsheetData} />
     </div>
   );
-}
+};
 
 export default App;
