@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import FileUpload from './FileUpload'; 
-import SpreadsheetDisplay from './SpreadsheetDisplay';
+import FileUpload from './Components/FileUpload';
+import SpreadsheetDisplay from './Components/SpreadsheetDisplay';
+
+
 
 const App = () => {
   const [spreadsheetData, setSpreadsheetData] = useState(null);

@@ -1,8 +1,12 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
-const FileUpload = ({ onFileUpload }) => {
-  const onDrop = useCallback(acceptedFiles => {
+interface FileUploadProps {
+  onFileUpload: (file: File) => void; 
+}
+
+const FileUpload = ({ onFileUpload }: FileUploadProps) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     // Handle file upload
     onFileUpload(acceptedFiles[0]);
   }, [onFileUpload]);

@@ -1,12 +1,14 @@
 import React from 'react';
 
-const SpreadsheetDisplay = ({ data }) => {
+interface SpreadsheetDisplayProps {
+  data: any[];
+}
+
+const SpreadsheetDisplay = ({ data }: SpreadsheetDisplayProps) => {
   if (!data) {
     return <div>Your file will appear here.</div>;
   }
 
-  // Render your spreadsheet data here
-  // For simplicity, this example will just display data in a basic table
   return (
     <div>
       <table>
@@ -21,7 +23,7 @@ const SpreadsheetDisplay = ({ data }) => {
           {data.map((row, index) => (
             <tr key={index}>
               {Object.values(row).map((cell, cellIndex) => (
-                <td key={cellIndex}>{cell}</td>
+                <td key={cellIndex}>{cell as string}</td>
               ))}
             </tr>
           ))}
